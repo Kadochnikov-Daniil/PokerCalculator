@@ -1,0 +1,189 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--Cards MenuItyem's style-->
+    <Style x:Key="CardMenuItem" TargetType="MenuItem">
+        <Setter Property="BorderBrush" Value="{StaticResource MainWhiteGold}"/>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border Height="105"
+                            Width="75"
+                            CornerRadius="4"
+                            BorderThickness="2"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Popup
+                                       AllowsTransparency="True"
+                                       IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Placement="Bottom"
+                                       PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
+
+                                <Border Background="{StaticResource MainBlue}"
+                                        BorderBrush="{StaticResource MainWhiteGold}"
+                                        CornerRadius="4"
+                                        BorderThickness="2">
+
+                                    <ScrollViewer x:Name="SubMenuScrollViewer"
+                                                      Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,TypeInTargetAssembly={x:Type FrameworkElement}}}">
+
+                                        <Grid RenderOptions.ClearTypeHint="Enabled">
+
+                                            <Canvas HorizontalAlignment="Left"
+                                                        VerticalAlignment="Top" />
+
+                                            <ItemsPresenter x:Name="ItemsPresenter" />
+
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource MouseOverCardBorder}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Card Suit menuItem's style-->
+    <Style x:Key="SuitMenuItem" TargetType="MenuItem">
+        <Setter Property="BorderBrush" Value="{StaticResource MainWhiteGold}"/>
+        <Setter Property="Background" Value="{StaticResource MainBlue}"/>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border Width="30" Height="30"
+                            CornerRadius="4"
+                            BorderThickness="2"
+                            Background="{TemplateBinding Background}">
+                        <Grid>
+                            <ContentPresenter ContentSource="Icon"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Height="25"
+                                              Width="25">
+                            </ContentPresenter>
+                            <Popup
+                                       AllowsTransparency="True"
+                                       IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Placement="Bottom"
+                                       PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
+
+                                <Border Background="{StaticResource MainBlue}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        CornerRadius="4"
+                                        BorderThickness="2">
+
+                                    <ScrollViewer x:Name="SubMenuScrollViewer"
+                                                      Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,TypeInTargetAssembly={x:Type FrameworkElement}}}">
+
+                                        <Grid RenderOptions.ClearTypeHint="Enabled">
+
+                                            <Canvas HorizontalAlignment="Left"
+                                                        VerticalAlignment="Top" />
+
+                                            <ItemsPresenter x:Name="ItemsPresenter" />
+
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                            
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainWhiteGold}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--Card Number menuItem's style-->
+    <Style x:Key="NumberMenuItem" TargetType="MenuItem">
+        <Setter Property="BorderBrush" Value="{StaticResource MainWhiteGold}"/>
+        <Setter Property="Background" Value="{StaticResource MainBlue}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainWhiteGold}"/>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border Width="30" Height="30"
+                            CornerRadius="4"
+                            BorderThickness="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding Background}">
+                        <Grid>
+                            <ContentPresenter ContentSource="Header"
+                                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                                              TextBlock.FontFamily="Rubik Medium"
+                                              TextBlock.FontSize="15"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                            <Popup
+                                       AllowsTransparency="True"
+                                       IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Placement="Bottom"
+                                       PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
+
+                                <Border Background="{StaticResource MainBlue}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        CornerRadius="4"
+                                        BorderThickness="2">
+
+                                    <ScrollViewer x:Name="SubMenuScrollViewer"
+                                                      Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,TypeInTargetAssembly={x:Type FrameworkElement}}}">
+
+                                        <Grid RenderOptions.ClearTypeHint="Enabled">
+
+                                            <Canvas HorizontalAlignment="Left"
+                                                        VerticalAlignment="Top" />
+
+                                            <ItemsPresenter x:Name="ItemsPresenter" />
+
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainWhiteGold}"/>
+                <Setter Property="Foreground" Value="{StaticResource MainBlue}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

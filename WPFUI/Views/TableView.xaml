@@ -1,0 +1,378 @@
+﻿<UserControl x:Class="WPFUI.Views.TableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFUI.Views"
+             xmlns:viewModel="clr-namespace:WPFUI.ViewModel"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="820">
+
+    <UserControl.DataContext>
+        <viewModel:TableViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CardViewModel}">
+            <local:CardView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PlayerViewModel}">
+            <local:PlayerView/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Table.png"/>
+        </Grid.Background>
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding PlayerFour}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"/>
+            <Button x:Name="RemoveButtonFour"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Style="{StaticResource WindowButton}"
+                    Command="{Binding RemovePlayerFour}" 
+                    Visibility="Hidden" 
+                    Click="RemoveButtonFour_Click">
+                <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+            <Button x:Name="AddButtonFour"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource WindowButton}"
+                    Visibility="Visible" 
+                    Command="{Binding AddPlayerFour}"
+                    Click="AddButtonFour_Click">
+                <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+
+            <ContentControl Grid.Row="3"
+                            Content="{Binding PlayerThree}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"/>
+            <Button x:Name="RemoveButtonThree"
+                    Grid.Row="3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Style="{StaticResource WindowButton}"
+                    Command="{Binding RemovePlayerThree}" 
+                    Visibility="Hidden" 
+                    Click="RemoveButtonThree_Click">
+                <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+            <Button x:Name="AddButtonThree"
+                    Grid.Row="3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource WindowButton}"
+                    Visibility="Visible" 
+                    Command="{Binding AddPlayerThree}"
+                    Click="AddButtonThree_Click">
+                <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Margin="35,0,35,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentControl Grid.Column="0"
+                                Content="{Binding FirstCard}"
+                                VerticalAlignment="Center"/>
+                <ContentControl Grid.Column="1"
+                                Content="{Binding SecondCard}"
+                                VerticalAlignment="Center"/>
+                <ContentControl Grid.Column="2"
+                                Content="{Binding ThirdCard}"
+                                VerticalAlignment="Center"/>
+                <ContentControl Grid.Column="3"
+                                Content="{Binding FourthCard}"
+                                VerticalAlignment="Center"/>
+                <ContentControl Grid.Column="4"
+                                Content="{Binding FifthCard}"
+                                VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentControl Grid.Column="0"
+                            Content="{Binding PlayerFive}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"
+                            Margin="0,50,0,0"/>
+                <Button x:Name="RemoveButtonFive"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerFive}" 
+                        Visibility="Hidden" 
+                        Click="RemoveButtonFive_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonFive"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Style="{StaticResource WindowButton}"
+                        Visibility="Visible" 
+                        Command="{Binding AddPlayerFive}"
+                        Click="AddButtonFive_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+
+                <ContentControl Grid.Column="1"
+                            Content="{Binding PlayerSix}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"
+                            Margin="0,50,0,0"/>
+                <Button x:Name="RemoveButtonSix"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerSix}"
+                        Click="RemoveButtonSix_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonSix"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Style="{StaticResource WindowButton}"
+                        Visibility="Hidden" 
+                        Command="{Binding AddPlayerSix}"
+                        Click="AddButtonSix_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+
+                <ContentControl Grid.Column="2"
+                            Content="{Binding PlayerSeven}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"
+                            Margin="0,50,0,0"/>
+                <Button x:Name="RemoveButtonSeven"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerSeven}" 
+                        Visibility="Hidden" 
+                        Click="RemoveButtonSeven_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonSeven"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Style="{StaticResource WindowButton}"
+                        Visibility="Visible" 
+                        Command="{Binding AddPlayerSeven}"
+                        Click="AddButtonSeven_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentControl Grid.Column="0"
+                                Content="{Binding PlayerTwo}"
+                                Height="130"
+                                Width="150"
+                                VerticalAlignment="Bottom"
+                                Margin="0,0,0,40"/>
+                <Button x:Name="RemoveButtonTwo"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerTwo}" 
+                        Visibility="Hidden" 
+                        Click="RemoveButtonTwo_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonTwo"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Style="{StaticResource WindowButton}"
+                        Visibility="Visible" 
+                        Command="{Binding AddPlayerTwo}"
+                        Click="AddButtonTwo_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+
+
+                <ContentControl Grid.Column="1"
+                            Content="{Binding PlayerOne}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,40"/>
+                <Button x:Name="RemoveButtonOne"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerOne}" 
+                        Click="RemoveButtonOne_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonOne"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource WindowButton}"
+                    Visibility="Hidden"
+                    Command="{Binding AddPlayerOne}"
+                    Click="AddButtonOne_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+
+                <ContentControl Grid.Column="2"
+                            Content="{Binding PlayerTen}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,40"/>
+                <Button x:Name="RemoveButtonTen"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource WindowButton}"
+                        Command="{Binding RemovePlayerTen}"
+                        Visibility="Hidden" 
+                        Click="RemoveButtonTen_Click">
+                    <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+                <Button x:Name="AddButtonTen"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Style="{StaticResource WindowButton}"
+                        Visibility="Visible" 
+                        Command="{Binding AddPlayerTen}"
+                        Click="AddButtonTen_Click">
+                    <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding PlayerEight}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"/>
+            <Button x:Name="RemoveButtonEight"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Style="{StaticResource WindowButton}"
+                    Command="{Binding RemovePlayerEight}"
+                    Visibility="Hidden" 
+                    Click="RemoveButtonEight_Click">
+                <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+            <Button x:Name="AddButtonEight"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource WindowButton}"
+                    Visibility="Visible" 
+                    Command="{Binding AddPlayerEight}"
+                    Click="AddButtonEight_Click">
+                <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+
+            <ContentControl Grid.Row="3"
+                            Content="{Binding PlayerNine}"
+                            Height="130"
+                            Width="150"
+                            VerticalAlignment="Top"/>
+            <Button x:Name="RemoveButtonNine"
+                    Grid.Row="3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Style="{StaticResource WindowButton}"
+                    Command="{Binding RemovePlayerNine}" 
+                    Visibility="Hidden" Click="RemoveButtonNine_Click">
+                <fa:IconImage Icon="Minus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+            <Button x:Name="AddButtonNine"
+                    Grid.Row="3"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource WindowButton}"
+                    Visibility="Visible"
+                    Command="{Binding AddPlayerNine}"
+                    Click="AddButtonNine_Click">
+                <fa:IconImage Icon="Plus" Style="{StaticResource WindowButtonsIcon}"/>
+            </Button>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

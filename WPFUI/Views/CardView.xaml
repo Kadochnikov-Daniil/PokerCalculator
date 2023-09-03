@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="WPFUI.Views.CardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFUI.Views"
+             xmlns:viewModel="clr-namespace:WPFUI.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="105" d:DesignWidth="75">
+
+    <UserControl.DataContext>
+        <viewModel:CardViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Menu BorderBrush="Transparent"
+              Background="Transparent">
+            <MenuItem Style="{StaticResource CardMenuItem}"
+                      Height="105" Width="75">
+                <MenuItem.Background>
+                    <ImageBrush ImageSource="{Binding CardName}"/>
+                </MenuItem.Background>
+
+                <MenuItem Style="{StaticResource SuitMenuItem}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Suits/Clubs.png"/>
+                    </MenuItem.Icon>
+
+                    <MenuItem Header="2" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C2"/>
+                    <MenuItem Header="3" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C3"/>
+                    <MenuItem Header="4" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C4"/>
+                    <MenuItem Header="5" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C5"/>
+                    <MenuItem Header="6" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C6"/>
+                    <MenuItem Header="7" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C7"/>
+                    <MenuItem Header="8" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C8"/>
+                    <MenuItem Header="9" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C9"/>
+                    <MenuItem Header="10" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="C10"/>
+                    <MenuItem Header="J" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="CJ"/>
+                    <MenuItem Header="Q" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="CQ"/>
+                    <MenuItem Header="K" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="CK"/>
+                    <MenuItem Header="A" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="CA"/>
+                </MenuItem>
+
+                <MenuItem Style="{StaticResource SuitMenuItem}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Suits/Diamonds.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="2" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D2" />
+                    <MenuItem Header="3" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D3"/>
+                    <MenuItem Header="4" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D4"/>
+                    <MenuItem Header="5" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D5"/>
+                    <MenuItem Header="6" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D6"/>
+                    <MenuItem Header="7" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D7"/>
+                    <MenuItem Header="8" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D8"/>
+                    <MenuItem Header="9" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D9"/>
+                    <MenuItem Header="10" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="D10"/>
+                    <MenuItem Header="J" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="DJ"/>
+                    <MenuItem Header="Q" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="DQ"/>
+                    <MenuItem Header="K" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="DK"/>
+                    <MenuItem Header="A" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="DA"/>
+                </MenuItem>
+
+                <MenuItem Style="{StaticResource SuitMenuItem}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Suits/Hearts.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="2" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H2" />
+                    <MenuItem Header="3" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H3"/>
+                    <MenuItem Header="4" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H4"/>
+                    <MenuItem Header="5" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H5"/>
+                    <MenuItem Header="6" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H6"/>
+                    <MenuItem Header="7" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H7"/>
+                    <MenuItem Header="8" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H8"/>
+                    <MenuItem Header="9" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H9"/>
+                    <MenuItem Header="10" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="H10"/>
+                    <MenuItem Header="J" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="HJ"/>
+                    <MenuItem Header="Q" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="HQ"/>
+                    <MenuItem Header="K" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="HK"/>
+                    <MenuItem Header="A" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="HA"/>
+                </MenuItem>
+
+                <MenuItem Style="{StaticResource SuitMenuItem}">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Suits/Spades.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="2" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S2" />
+                    <MenuItem Header="3" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S3"/>
+                    <MenuItem Header="4" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S4"/>
+                    <MenuItem Header="5" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S5"/>
+                    <MenuItem Header="6" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S6"/>
+                    <MenuItem Header="7" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S7"/>
+                    <MenuItem Header="8" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S8"/>
+                    <MenuItem Header="9" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S9"/>
+                    <MenuItem Header="10" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="S10"/>
+                    <MenuItem Header="J" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="SJ"/>
+                    <MenuItem Header="Q" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="SQ"/>
+                    <MenuItem Header="K" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="SK"/>
+                    <MenuItem Header="A" Style="{StaticResource NumberMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="SA"/>
+                </MenuItem>
+
+                <MenuItem Style="{StaticResource SuitMenuItem}" Command="{Binding PlaceCardCommand}" CommandParameter="BackSide">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/BackForSuits.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>
